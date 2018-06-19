@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: jumperio/vlab-gcc-arm:latest
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: make -C examples/ble_peripheral/ble_app_blinky/pca10040/s132/armgcc
+      - store_artifacts:
+          path: examples/ble_peripheral/ble_app_blinky/pca10040/s132/armgcc/_build/
